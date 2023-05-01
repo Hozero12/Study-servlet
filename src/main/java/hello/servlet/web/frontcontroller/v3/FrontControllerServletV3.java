@@ -44,10 +44,10 @@ public class FrontControllerServletV3 extends HttpServlet {
 
         Map<String, String> paramMap = createParamMap(request);
         //paramMap
-        ModelView modelView = controller.process(paramMap);
+        ModelView modelView = controller.process(paramMap);// 결과물 반환
 
         String viewName = modelView.getViewName();
-        MyView view = viewResolver(viewName);
+        MyView view = viewResolver(viewName);  //물리적 경로로 바꿈
 
         view.render(modelView.getModel(),request, response);
     }
