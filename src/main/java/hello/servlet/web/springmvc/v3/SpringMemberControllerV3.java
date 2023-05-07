@@ -2,11 +2,13 @@ package hello.servlet.web.springmvc.v3;
 
 import hello.servlet.domain.Member;
 import hello.servlet.domain.MemberRepository;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
+@Controller
 @RequestMapping("/springmvc/v3/members")
 public class SpringMemberControllerV3 {
 
@@ -20,6 +22,7 @@ public class SpringMemberControllerV3 {
 
     @RequestMapping
     public String members(Model model) {
+        System.out.println("SpringMemberControllerV3.members");
         List<Member> members = memberRepository.findAll();
         model.addAttribute("members", members);
 
